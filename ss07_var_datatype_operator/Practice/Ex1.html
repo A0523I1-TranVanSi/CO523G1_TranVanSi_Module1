@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        physics = prompt(" Enter physics score : ")
+        chesmistry = prompt("Enter chemistry score : ")
+        byology = prompt("Enter byology score : ")
+
+        var Physics = parseFloat(physics)
+        var Chemistry = parseFloat(chesmistry)
+        var Byology = parseFloat(byology)
+        var sum = Physics+Chemistry+Byology
+        var Medium = sum/3 
+
+        document.write("Sum = " + sum)
+        document.write(" <br/> ")
+        document.write("Medium = " + Medium)
+    </script>
+</body>
+</html>
