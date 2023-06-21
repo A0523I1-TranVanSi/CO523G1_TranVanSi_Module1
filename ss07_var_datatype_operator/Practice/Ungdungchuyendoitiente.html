@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="">Amount</label>
+        <input type="text" id="amount" name="A"> <br>  <br>
+        <label for="">From Curency</label>
+        <select name="From" id="F">  
+            <option value="VN" >Việt Nam</option>
+            <option value="US">Mỹ</option>
+        </select> <br> <br>
+        <label for="">To Curency</label>
+        <select name="To" id="T"> 
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
+        </select> <br> <br>
+        <button type="button" onclick="Convert()">Convert</button>
+    </form>
+    
+    <div id="Result">
+    <script>
+        function Convert(){
+            let amount_input = document.getElementById("amount").value
+            let from_curency = document.getElementById("F").value
+            let to_curency = document.getElementById("T").value
+            let Result_1 = amount_input/23500
+            let Result_2 = amount_input*23500
+            
+
+            if (from_curency=="VN" && to_curency=="USD"){
+                document.getElementById('Result').innerHTML = "Result : " + Result_1 + "USD"
+            }else if (from_curency=="US" && to_curency=="VND"){
+                document.getElementById('Result').innerHTML = "Result : " + Result_1 + "USD"
+            }
+            
+        }
+    </script>
+    </div>
+</body>
+</html>
