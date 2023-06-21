@@ -6,6 +6,52 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="">
+        <table>
+            <tr>
+                <td colspan="2"><input type="text" id="input_firstValue"></td>
+                <td colspan="2"><input type="text" id="input_seccondValue"></td>
+            </tr>
+            <tr>
+                <td><button onclick="addition()" type="button" value="Addition(+)">Addition(+)</button></td>
+                <td><button onclick="subtraction()" type="button" value="Subtraction(-)">Subtraction(-)</button></td>
+                <td><button onclick="multiplication()" type="button" value="Multiplication(x)">Multiplication(x)</button></td>
+                <td><button onclick="division()" type="button" value="Division(/)">Division(/)</button></td>
+            </tr>
+        </table>
+    </form>
+    <div id="Result">
+        <script>
+            function addition(){
+                let first = +document.getElementById('input_firstValue').value
+                let seccond = +document.getElementById('input_seccondValue').value
+                let Result_Addition = first + seccond
+                
+                document.getElementById('Result').innerHTML = "Result Addition : " + Result_Addition
+            }
+            function subtraction(){
+                let first = +document.getElementById('input_firstValue').value
+                let seccond = +document.getElementById('input_seccondValue').value
+                let Result_Subtraction = first - seccond
+                
+                document.getElementById('Result').innerHTML = "Result Subtraction : " + Result_Subtraction
+            }
+            function multiplication(){
+                let first = +document.getElementById('input_firstValue').value
+                let seccond = +document.getElementById('input_seccondValue').value
+                let Result_Multiplication = first * seccond
+                
+                document.getElementById('Result').innerHTML = "Result Multiplication : " + Result_Multiplication
+            }
+            function division(){
+                let first = +document.getElementById('input_firstValue').value
+                let seccond = +document.getElementById('input_seccondValue').value
+                let Result_Division = first / seccond
+                
+                document.getElementById('Result').innerHTML = "Result Division : " + Result_Division
+            }
+
+        </script>
+    </div>
 </body>
 </html>
