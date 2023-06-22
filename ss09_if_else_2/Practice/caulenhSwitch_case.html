@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td><input type="text" id="input_date_number"></td>
+                <td><button type="button"  onclick="Caculate_date()">tính số ngày</button></td>
+            </tr>
+        </table>
+    </form>
+    <div id="Result">
+        <script>
+            function Caculate_date(){
+                let input_date_number = +document.getElementById('input_date_number').value
+                switch(input_date_number) {
+                    case 1 : 
+                    case 3 : 
+                    case 5 : 
+                    case 7 : 
+                    case 8 : 
+                    case 10 : 
+                    case 12 : 
+                        document.getElementById('Result').innerHTML = "Thang " + input_date_number + " co 31 ngay"
+                        break
+                    case 4 : 
+                    case 6 : 
+                    case 9 : 
+                    case 11 :
+                        document.getElementById('Result').innerHTML = "Thang " + input_date_number + " co 30 ngay"
+                        break 
+                    case 2 : 
+                        document.getElementById('Result').innerHTML = "Thang " + input_date_number + " co 28 ngay"
+                        break
+                    default : 
+                        document.getElementById('Result').innerHTML = "Vui long nhap lai ! " 
+                    
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
