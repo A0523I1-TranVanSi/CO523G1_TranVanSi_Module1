@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let test_score = +prompt("enter test score")
+        let midterm_score = +prompt("enter midterm score")
+        let final_score = +prompt("enter final score")
+        let average_score = (test_score + midterm_score + final_score)/3
+
+        if( average_score >= 9){
+            alert("xuất sắc")
+        }else if ( average_score >= 8 ){
+            alert("Giỏi")
+        }else if ( average_score >= 7){
+            alert( " Khá ")
+        }else if ( average_score >= 6 ){
+            alert("Trung bình")
+        }else{
+            alert("yếu")
+        }
+    </script>
+</body>
+</html>
