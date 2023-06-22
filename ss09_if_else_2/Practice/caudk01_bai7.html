@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Nhap so phut goi" id="phutGoi">
+    <button onclick="tinhTienCuocGoi()">Tinh Tien</button>
+    <script>
+        function tinhTienCuocGoi() {
+        let phutGoi = document.getElementById('phutGoi').value;
+        let tongTien = 0;
+        if (phutGoi < 5) { 
+            tongTien = phutGoi * 800;
+        } else if (phutGoi < 10) {
+            tongTien = 5 * 800 + (phutGoi - 5) * 1000;
+        } else {
+            tongTien = 5 * 800 + 5 * 1000 + (phutGoi - 10)*1200;
+        }
+        alert(tongTien)
+    }   
+    </script>
+</body>
+</html>
