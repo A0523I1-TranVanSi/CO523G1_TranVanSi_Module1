@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = prompt("Enter a ")
+        let b = prompt("Enter b ")
+        let c = prompt("Enter c ")
+        let delta = (b*b)-4*a*c
+        let x1 = [(-b + Math.abs(delta))/2*a]
+        let x2 = [(-b - Math.abs(delta))/2*a]
+
+        if (delta < 0 ){
+            alert("PT vo nghiem")
+        }else if ( delta == 0 ){
+            alert("PT co nghiem kep : x1 = x2 = " + -b/(2*a) )
+        }else{
+            alert("PT co 2 nghiem phan biet : " + x1 +"and" + x2)
+        }
+    </script>
+</body>
+</html>
