@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input_consumption_level  = +prompt("Nhap muc tieu thu kWh : ")
+        
+
+        if( input_consumption_level > 0 && input_consumption_level < 100 ){
+            let result = parseFloat(input_consumption_level * 0.2)
+            alert("tong gia dien se la : " + result + "đ")
+        }else if( input_consumption_level > 101 && input_consumption_level < 200 ){
+            let result = parseFloat((100 * 0.2) + (input_consumption_level - 100 )* 0.25)
+            alert("tong gia dien se la : " + result + "đ")
+        }else if( input_consumption_level > 200) {
+            let result = parseFloat((100 * 0.2) + (100 * 0.25) + (input_consumption_level - 200) * 0.3)
+            alert("tong gia dien se la : " + result + "đ")
+        }else{
+            alert("ERRO")
+        }
+    </script>
+</body>
+</html>
