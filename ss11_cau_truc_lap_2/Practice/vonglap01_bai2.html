@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let temperature = prompt("Enter nhiet do ")
+        while( temperature > 100 || temperature < 20 ){
+            if(temperature > 100){
+               temperature =  prompt("Nhiet do qua cao vui long giam nhiet do !")
+            }else {
+               temperature = prompt("Nhiet do qua thap vui long tang nhiet do !")
+            }
+        }
+        alert("nhiet do hien tai la " + temperature)
+    </script>
+</body>
+</html>
