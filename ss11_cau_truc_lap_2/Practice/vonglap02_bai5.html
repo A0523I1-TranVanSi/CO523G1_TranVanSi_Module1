@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Nhập số tiền ban đầu, số tháng cho vay và lãi suất hàng tháng từ bàn phím
+        let principal = parseFloat(prompt("Nhập số tiền ban đầu:"));
+        let months = parseInt(prompt("Nhập số tháng cho vay:"));
+        let interestRate = parseFloat(prompt("Nhập lãi suất hàng tháng (%):"));
+
+        // Chuyển đổi lãi suất hàng tháng từ phần trăm sang dạng thập phân
+        interestRate = interestRate / 100;
+
+        // Tính lãi ngân hàng
+        let totalInterest = 0;
+        let currentPrincipal = principal;
+
+        for (let i = 0; i < months; i++) {
+            let monthlyInterest = currentPrincipal * interestRate;
+            totalInterest += monthlyInterest;
+            currentPrincipal += monthlyInterest;
+        }
+
+        // Tính tổng số tiền (gốc + lãi)
+        let totalAmount = principal + totalInterest;
+
+        // In ra kết quả
+        console.log("Số tiền ban đầu: " + principal);
+        console.log("Số tháng cho vay: " + months);
+        console.log("Lãi suất hàng tháng: " + interestRate * 100 + "%");
+        console.log("Tổng lãi ngân hàng: " + totalInterest);
+        console.log("Tổng số tiền sau " + months + " tháng: " + totalAmount);
+    </script>
+</body>
+</html>
