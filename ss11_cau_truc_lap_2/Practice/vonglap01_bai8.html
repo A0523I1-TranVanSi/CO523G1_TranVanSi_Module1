@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+        const playButton = document.createElement('button');
+        playButton.textContent = 'Chơi';
+        document.body.appendChild(playButton);
+        function playGame() {
+            // Hiển thị cửa sổ prompt cho phép người dùng nhập vào khoảng đoán
+            const rangeInput = prompt('Nhập vào khoảng số bạn muốn đoán (vd: 1-100):');
+            if (rangeInput) {
+                const range = rangeInput.split('-');
+                const min = parseInt(range[0]);
+                const max = parseInt(range[1]);
+        // Kiểm tra tính hợp lệ của khoảng đoán
+                if (!isNaN(min) && !isNaN(max) && min < max) {
+                    // Chọn số ngẫu nhiên trong khoảng đoán
+                    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+                    let guessedNumber = null;
+                    let message = '';
+
+                    while (guessedNumber !== randomNumber) {
+                        // Hiển thị cửa sổ prompt cho người dùng nhập giá trị đoán
+                        guessedNumber = parseInt(prompt('Hãy đoán số là:'));
+
+                        if (isNaN(guessedNumber)) {
+                            message = 'Vui lòng nhập một số hợp lệ.';
+                        } else if (guessedNumber === randomNumber) {
+                            message = 'Chúc mừng! Bạn đã đoán đúng số.';
+                        } else if (guessedNumber > randomNumber) {
+                            message = 'Số bạn đoán lớn hơn số cần tìm.';
+                        } else {
+                            message = 'Số bạn đoán nhỏ hơn số cần tìm.';
+                        }
+
+                        alert(message);
+                    }
+
+                    // Kết thúc lượt chơi
+                    alert('Kết thúc lượt chơi.');
+                } else {
+                    alert('Khoảng đoán không hợp lệ.');
+                }
+            }
+        }
+        playButton.addEventListener('click', playGame);
+        
+    </script>
+</body>
+
+</html>
