@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numbers = [111, 2, 32, 48, 55, 16, 7, 80, 96, 10]
+        let max = numbers[0]
+        let average = 0 
+        for (i = 0; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i]
+            }
+            average += numbers[i]
+        }
+        alert("Max is : " + max + " - " + "Average is " + average/numbers.length+1)
+    </script>
+</body>
+
+</html>
