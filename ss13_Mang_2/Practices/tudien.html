@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="">
+        <input type="text" id="search">
+        <button type="button" onclick="timkiem()">Tim Kiem</button>
+    </form>
+    <div id="searchResult"></div>
+    <script>
+        let Mang_1 = ['student','school','class','teacher']
+        let Mang_2 = ['hoc sinh','truong hoc','lop hoc','giao vien']
+        
+        function timkiem(){
+            let input_search = document.getElementById('search').value
+            let index = Mang_1.indexOf(input_search)
+            if ( index != -1 ){
+                Mang_2 = Mang_2[index]
+                document.write("Từ "+input_search+" được dịch là "+Mang_2+".")
+            }else{
+                alert("Không tìm thấy từ " + input_search + "!!!")
+            }
+        }
+    </script>
+</body>
+</html>
