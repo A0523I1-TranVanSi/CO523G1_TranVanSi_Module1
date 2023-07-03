@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // bai 1
+        let myColor = ['red','green','white','black']
+        console.log(myColor.join('+'))
+    </script>
+    <script>
+        //bai 2 
+        let num = prompt("enter num  : ")
+        let str = num.toString()
+        let result = [str[0]]
+        for ( i = 1 ; i < str.length ; i ++ ){
+            if(str[ i - 1 ] % 2 == 0 && str[ i ] % 2 == 0 ){
+                result.push('-'+str[i])
+            }else{
+                result.push(str[i])
+            }
+        }
+        console.log(result.join(''))
+    </script>
+    <script>
+        //bai3
+        let str_1 = "tRAN vAN sI"
+        let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        let lower = 'abcdefghijklmnopqrstuvwxyz'
+        let result_1 = []
+
+        for( x = 0 ; x < str_1.length; x ++ ){
+            if (upper.indexOf(str_1[x]) != -1 ){
+                result_1.push(str_1[x].toLowerCase())
+            }else if ( lower.indexOf(str_1[x]) != -1){
+                result_1.push(str_1[x].toUpperCase())
+            }else { 
+                result_1.push(str_1[x])
+            }
+        }
+        console.log(result_1.join(''))
+    </script>
+</body>
+</html>
