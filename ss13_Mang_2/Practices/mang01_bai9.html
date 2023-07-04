@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = []
+        let b = []
+        for(i = 0 ; i < 10 ; i ++ ){
+            let n = prompt("Nhập phần tử thứ " + (i + 1 )+ "của mảng a : ")
+            a.push(n)
+        }
+        for(y = 0 ; y < 10 ; y ++ ){
+            let m = prompt("Nhập phần tử thứ " + (y + 1 )+ "của mảng b : ")
+            a.push(m)
+        }
+        let c = a.concat(b)
+        console.log(c)
+    </script>
+</body>
+</html>
