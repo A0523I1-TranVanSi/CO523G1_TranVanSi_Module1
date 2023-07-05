@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let array = prompt("Nhập mảng ký tự : ")
+        let array_new = array.split(" ")
+        console.log("Mảng ký tự trước khi thay thế " + array_new)
+        for (i = 0; i < array_new.length; i++) {
+            if (array_new[i] === '-') {
+                array_new[i] = '_'
+            }
+        }
+        console.log("Mảng sau khi thay thế " + array_new)
+    </script>
+   
+</body>
+
+</html>

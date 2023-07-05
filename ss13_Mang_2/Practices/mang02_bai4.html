@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = "tran van si dep trai"
+        let tuArray = array.split('')
+        let sotu = 0 
+        for( i = 0 ; i < tuArray.length; i ++ ){
+            if(tuArray[i] != ' '){
+                sotu ++
+            }
+        }
+        console.log("Chuỗi :" + array)
+        console.log("Số từ trong chuỗi : " + sotu)
+    </script>
+</body>
+</html>
