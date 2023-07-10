@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tough(number){
+            let count = 1 
+            for( let i = 2 ; i <= number ; i ++){
+                count = count * i 
+            }
+            return count 
+        }
+        let number = +prompt("Nhập số cần tính dai thừa")
+        let outputTough = tough(number)
+        document.write("Giai thừa của "+ number + " là :"+outputTough)
+    </script>
+</body>
+</html>
