@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function array(charaterArray, anyCharacter) {
+            let count = 0 
+            for (let i = 0; i < charaterArray.length; i++) {
+                if (anyCharacter === charaterArray[i]) {
+                    count ++
+                }
+            }
+            if ( count != 0 ){
+                return count 
+            }else { 
+                return -1 
+            }
+        }
+        let charaterArrays = ["a","b","a","a"]
+        let anyCharacters = "a"
+        console.log(array(charaterArrays,anyCharacters));
+
+        let charaterArray2 = ["a","b","a","a"]
+        let anyCharacter2 = "x"
+        console.log(array(charaterArray2,anyCharacter2));
+
+
+    </script>
+</body>
+
+</html>

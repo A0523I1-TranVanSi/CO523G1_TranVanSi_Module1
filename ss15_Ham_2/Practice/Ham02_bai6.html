@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkNumber(number){
+            if(Number.isInteger(number) && number > 0 ){
+                return true
+            }else{
+                return false
+            }
+        }
+        console.log(checkNumber(5));
+        console.log(checkNumber(-5));
+        console.log(checkNumber(5.5));
+    </script>
+</body>
+</html>
