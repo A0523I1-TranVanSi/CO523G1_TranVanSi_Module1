@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function footToMeter(foot){
+            let meterOutput = foot * 0.305
+            return meterOutput
+        }
+        function meterToFoot(meter){
+            let footOutput = meter * 3.279
+            return footOutput
+        }
+        let foot = 1.0
+        let meterOutput = footToMeter(foot)
+        console.log("feet = "+foot+" To "+"meters = "+meterOutput)
+        let meter = 0.610
+        let footOutput = meterToFoot(meter)
+        console.log("meters = "+meter+" To "+"feet = "+footOutput)
+        
+    </script>
+</body>
+</html>

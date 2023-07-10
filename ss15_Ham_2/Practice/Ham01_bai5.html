@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let start = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+        let startSame = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila"," Ursa Major", "Leo"]
+        function findStart(startName){
+            for(let i = 0 ; i < start.length ; i ++ ){
+                if( start[i] === startName){
+                    return startSame[i]
+                }
+            }
+            return "khong tim thay chom sao tuong ung"
+        }
+        let startName = prompt("Nhap ten ngoi sao : ")
+        let findStartSame = findStart(startName)
+        document.write("Chom sao tuong ung : " + findStartSame)
+    </script>
+</body>
+</html>
