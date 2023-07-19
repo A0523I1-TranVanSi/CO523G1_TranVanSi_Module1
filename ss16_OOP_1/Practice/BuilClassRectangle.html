@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+    <script>
+        class Rectangle{
+            constructor(length,width){
+                this.length = length
+                this.width = width 
+            }
+            getArea(){
+                return this.length*this.width
+            }
+            getPremiter(){
+                return 2*(this.length+this.width)
+            }
+            draw(){
+                let canvas = document.getElementById("myCanvas")
+                let ctx = canvas.getContext("2d")
+                ctx.clearRect(0,0,canvas.width,canvas.height)
+                ctx.fillRect(0,0,this.width,this.length)
+            }
+        }
+        let rectangle = new Rectangle(100,50)
+        rectangle.draw()
+        rectangle.length = 200
+        rectangle.width = 100
+        rectangle.draw()
+        let area = rectangle.getArea()
+        let premiter = rectangle.getPremiter()
+        console.log("Area : " + area)
+        console.log("Premiter : " + premiter)
+    </script>
+</body>
+</html>

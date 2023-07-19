@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Mobile{
+            constructor(){
+                this.betteryStatus = 100 //thông số về trạng thái pin tính bằng đơn vị số nguyên (tối đa 100 đv)
+                this.saveMessageComposing = ''// vùng nhớ dùng để lưu tin nhắn đang soạn thảo.
+                this.saveMessageInbox = [] //vùng nhớ dùng để lưu tin nhắn trong hộp thư đến.
+                this.saveMessageSent = [] // vùng nhớ dùng để lưu tin nhắn đã gửi.
+                this.isPowerOn = false //gán trạng thái điện thoại đg là false 
+            }
+            // kiểm tra trạng thái điện thoại bật hay tắt.
+            getCheckPowerStatus(){
+                return this.isPowerOn
+            }
+            //bật điện thoại
+            getTurnOn(){
+                this.isPowerOn = true 
+                console.log("Mobile is turnOn")
+            }
+            //tắt điện thoại 
+            getTurnOff(){
+                this.isPowerOn = false
+                console.log("Mobile is turnOff")
+            }
+            // sạc pin điện thoại 
+            getChargeBetterStatus(){
+                if ( this.betteryStatus < 100 ){
+                    this.betteryStatus = Math.min(this.betteryStatus + 10 , 100)
+                    console.log("Charging...Battery level : " + this.betteryStatus)
+                }else{
+                    console.log("Battery is already fully charged.")
+                }
+            }
+            // mỗi lần sử dụng một chức năng, năng lượng pin sẽ giảm đi một đơn vị.
+            getDecreaseBattery(){
+                this.betteryStatus--
+                if(this.betteryStatus === 0 ){
+                    this.getTurnOff()
+                }
+            }
+            //soạn tin nhắn 
+            getMessageComposing(message){
+                if(this.isPowerOn){
+                    this.saveMessageComposing = message
+                    console.log("Message drafted : " + this.saveMessageComposing)
+                    this.getDecreaseBattery()
+                }else{
+                    console.log("Cannot compose message. mobile is turned off.")
+                }
+            }
+            // nhận tin nhắn 
+            getMessageInbox(message){
+                if(this.isPowerOn){
+                    this.saveMessageInbox.push(message)
+                    console.log("Receied message : " + message)
+                    this.getDecreaseBattery()
+                }else{
+                    console.log("Cannot Receied message. mobile is turned off.")
+                }
+            }
+            // gửi tin nhắn
+            getMessageSend(receiver, message){
+                if(this.isPowerOn){
+                    receiver.getMessageInbox(message)
+                    this.saveMessageSent.push(message)
+                    console.log("Message sent : " + message)
+                    this.getDecreaseBattery()
+                }else{
+                    console.log("Cannot send message. mobile is turned off.")
+                }
+            }
+            //xem tin trong hộp thư đến 
+            getViewInbox(){
+                if(this.isPowerOn){
+                    console.log("Inbox: ")
+                    for(let i = 0 ; i < this.saveMessageInbox.length; i ++ ){
+                        console.log((i+1)+"."+this.saveMessageInbox[i])
+                    }
+                    this.getDecreaseBattery()
+                }else{
+                    console.log("Cannot veiw inbox. mobile is turned off.")
+                }
+            }
+            //xem tin đã gửi 
+            getViewSent(){
+                if(this.isPowerOn){
+                    console.log("Sent : ")
+                    for(let j = 0 ; j < this.saveMessageSent.length; j ++){
+                        console.log((j+1)+"."+this.saveMessageSent[j])
+                    }
+                    this.getDecreaseBattery()
+                }else{
+                    console.log("Cannot view sent. mobile is turned off.")
+                }
+            }
+        }
+        // khởi tạo đối tượng Mobile
+        let nokia = new Mobile()
+        let iphone = new Mobile()
+
+        //bật điện thoại 
+        nokia.getTurnOn()
+        iphone.getTurnOn()
+
+        //nokia soạn tin nhắn và gửi cho iphone
+        nokia.getMessageComposing("xin chao!!! Toi la Nokia")
+        nokia.getMessageSend(iphone, nokia.saveMessageComposing)
+
+        //iphone kiểm tra inbox và hiển thị tin nhắn
+        iphone.getViewInbox()
+
+        //iphone soạn tin nhắn và gửi cho nokia
+        iphone.getMessageComposing("Xin chao!! Toi la iphone")
+        iphone.getMessageSend(nokia, iphone.saveMessageComposing)
+
+        nokia.getViewInbox()
+        nokia.getViewSent()
+
+    </script>
+</body>
+</html>
