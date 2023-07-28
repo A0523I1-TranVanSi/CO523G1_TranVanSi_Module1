@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let Menu = ["Cafe",
+            "Cam vắt",
+            "Nước ép cà rốt",
+            "Nước ép cà chua",
+            "Nước lọc",
+            "Nước dừa"
+        ]
+        let price =[15000,20000,20000,20000,20000,10000,25000]
+        document.write("Danh sách đồ uống : "+"<br>")
+        for(i = 0 ; i < Menu.length ; i ++ ){
+            document.write(i+1 +"."+Menu[i]+"-"+price[i]+"<br>")
+        }
+        let total = 0
+        do{
+            let inputNumberDrink = +prompt("Nhập từ 1 đến 6 (Nhập 7 để thoát): ")
+            if(inputNumberDrink>=1 && inputNumberDrink <=6){
+                let selectDrink =  Menu[inputNumberDrink -1 ]
+                let priceAmount = price[inputNumberDrink - 1 ]
+                let quantity = +prompt("Bạn đã chọn "+selectDrink+". Vui lòng chọn số lượng : ")
+                let drinkAmount = priceAmount * quantity
+                total += drinkAmount
+                console.log("Bạn đã chọn : "+selectDrink+"- số lượng là :"+quantity)
+                console.log("tổng tiền cần thanh toán là " + drinkAmount +"đ")
+            }else if(inputNumberDrink === 7){
+                break
+            }else{
+                console.log("vui long nhap so tu 1 den 7 ! ")
+            }
+        }while(true)
+        console.log("Tong so tien nguoi dung phai tra la : " + total+"đ")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Nhập chiều cao tam giác : ")
+        for(i = 1 ; i <= input ; i ++ ){
+            let row = ''
+            for(j = 1 ; j <= input - i ; j ++){
+                row = row + "&nbsp&nbsp"
+            }
+            for(k = 1 ; k <= 2*i-1 ; k ++){
+                if(k==1 || i == input || k == 2*i - 1  ){
+                    row = row + "*"
+                }else{
+                    row = row + "&nbsp&nbsp"
+                }
+            }
+            document.write(row+"<br>")
+        }
+    </script>
+</body>
+</html>

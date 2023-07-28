@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numerators = [5,2,5]
+        let denominators = [6,3,4]
+        let maxFractionIndex = 0 
+        let maxFractionValue = numerators[0]/denominators[0]
+        for( i = 0 ; i < numerators.length ; i ++ ){
+            let fractionValue = numerators[i]/denominators[i]
+            if( fractionValue > maxFractionIndex ){
+                maxFractionValue = fractionValue
+                maxFractionIndex = i 
+            }
+        }
+        console.log(maxFractionIndex)
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function differentSymbolsNaive(str) {
+            let count = {}
+            for (let i = 0; i < str.length; i++) {
+                count[str[i]] = true
+            }
+            return Object.keys(count).length
+        }
+        let s = 'cabca'
+        console.log(differentSymbolsNaive(s))
+    </script>
+</body>
+
+</html>
