@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let s1 = 'aabcc'
+        let s2 = 'adcaa'
+        let s3 =[]
+        let splitS1 = s1.split('')
+        let splitS2 = s2.split('')
+        let Dem = 0 
+        for(i = 0 ; i < splitS1.length ; i ++ ){
+            for(j=0 ; j < splitS2.length ; j ++){
+                if(splitS2[j] == splitS1[i]){
+                    s3.push(splitS2[j])
+                    Dem ++
+                    splitS2.splice(j,1)
+                    break
+                }
+            }
+        }
+        console.log("S1 va S2 co " + Dem + " ky tu chung !!!")
+        console.log(s3)
+    </script>
+</body>
+</html>

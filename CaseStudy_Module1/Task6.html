@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button onclick="createStudent()">Thêm mới học viên</button>
+    <button onclick="updateStudent()">Sửa thông tin học viên</button>
+    <button onclick="deleteStudent()">Xóa học viên</button>
+    <div id="tableStudent">
+
+    </div>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor(id, name, classs, email, date) {
+                this._id = id
+                this._name = name
+                this._classs = classs
+                this._email = email
+                this._date = date
+            }
+            get id() {
+                return this._id
+            }
+            set id(value) {
+                this._id = value
+            }
+            get name() {
+                return this._name
+            }
+            set name(value) {
+                this._name = value
+            }
+            get classs() {
+                return this._classs
+            }
+            set classs(value) {
+                this._classs = value
+            }
+            get email() {
+                return this._email
+            }
+            set email(value) {
+                this._email = value
+            }
+            get date() {
+                return this._date
+            }
+            set date(value) {
+                this._date = value
+            }
+        }
+        let studentArray = []
+        let student1 = new Student("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004")
+        let student2 = new Student("HV-0002", "Nguyễn Văn B", "C1122G1", "nguyenvanb@gmail.com", "02/02/2004")
+        let student3 = new Student("HV-0003", "Nguyễn Văn C", "C1222G1", "nguyenvanc@gmail.com", "03/03/2004")
+        studentArray.push(student1)
+        studentArray.push(student2)
+        studentArray.push(student3)
+
+        function showStudentList(studentList) {
+            let strTable = "<table border ='1'>"
+            strTable += "<tr>" +
+                "<th>Mã học viên</th>" +
+                "<th>Tên</th>" +
+                "<th>Lớp</th>" +
+                "<th>Email</th>" +
+                "<th>Ngày Sinh</th>" +
+                "</tr>"
+            for (i = 0; i < studentList.length; i++) {
+                strTable += "<tr>" +
+                    "<td>" + studentList[i].id + "</td>" +
+                    "<td>" + studentList[i].name + "</td>" +
+                    "<td>" + studentList[i].classs + "</td>" +
+                    "<td>" + studentList[i].email + "</td>" +
+                    "<td>" + studentList[i].date + "</td>" +
+                    "</tr>"
+            }
+            strTable += "</table>"
+            document.getElementById("tableStudent").innerHTML = strTable
+        }
+        showStudentList(studentArray)
+
+        function createStudent() {
+            let id = prompt("Nhập mã học viên : ")
+            let name = prompt("Nhập tên học viên : ")
+            let classs = prompt("Nhập lớp học viên : ")
+            let email = prompt("Nhập email học viên : ")
+            let date = prompt("Nhập ngày sinh học viên : ")
+
+            let newStudent = new Student(id, name, classs, email, date)
+            studentArray.push(newStudent)
+            showStudentList(studentArray)
+        }
+        function deleteStudent() {
+            let inputIDdelete = prompt("Nhập mã học viên cần xóa")
+            for (let i = 0; i < studentArray.length; i++) {
+                if (inputIDdelete === studentArray[i].id) {
+                    studentArray.splice(studentArray[i], 1)
+                } else {
+                    alert("Mã học viên không tồn tại !!!")
+                }
+            }
+            showStudentList(studentArray)
+        }
+        function updateStudent() {
+            let inputIDupdate = prompt("Nhập mã học viên cần chỉnh sửa ")
+            for (let i = 0; i < studentArray.length; i++) {
+                if (inputIDupdate === studentArray[i].id) {
+                    let name = prompt("Nhập tên học viên mới: ")
+                    let classs = prompt("Nhập lớp học viên mới: ")
+                    let email = prompt("Nhập email học viên mới: ")
+                    let date = prompt("Nhập ngày sinh học viên mới: ")
+                    studentArray[i].name = name
+                    studentArray[i].classs = classs
+                    studentArray[i].email = email
+                    studentArray[i].date = date
+                }
+            }
+            showStudentList(studentArray)
+        }
+    </script>
+</body>
+
+</html>
