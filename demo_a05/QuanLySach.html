@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="createNewBook()">Thêm sách</button>
+<button onclick="updateBook()">Sửa sách </button>
+<button onclick="deleteBook()">Xóa sách </button>
+
+<div>
+    <label for="bookName">Tên sách:
+        <input type="text" id="bookName"></label>
+    <label for="author">Tác giả:
+        <input type="text" id="author"> </label>
+    <label for="price">Giá:
+        <input type="text" id="price"> </label>
+    <button id="btn-add" onclick="createNewBook()">Thêm mới</button>
+    <button id="btn-save" onclick="saveUpdate()">Lưu</button>
+</div>
+<div id="tableBook">
+
+</div>
+<script>
+    class Book {
+        constructor(name, author, price) {
+            this._name = name;
+            this._author = author;
+            this._price = price;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            this._name = value;
+        }
+
+        get author() {
+            return this._author;
+        }
+
+        set author(value) {
+            this._author = value;
+        }
+
+        get price() {
+            return this._price;
+        }
+
+        set price(value) {
+            this._price = value;
+        }
+    }
+
+    let bookArray = [];
+    let book1 = new Book("1Q84", "Haruki Murakami", 100);
+    let book2 = new Book("Dich hach", "Albert Camus", 120);
+    let book3 = new Book("Dac nhan tam", "Dale", 150);
+    bookArray.push(book1);
+    bookArray.push(book2);
+    bookArray.push(book3);
+
+    // CRUD: Create, Read, Update, Delete
+    showBookList(bookArray);
+
+    function showBookList(bookList) {
+        let strTable = "<table border='1'>";
+        strTable += "<tr> " +
+            "<th>#</th>" +
+            "<th>Tên </th>" +
+            "<th>Tác giả</th>" +
+            "<th>Giá</th>" +
+            " </tr>";
+        // đưa dữ liệu vào phần thân.
+        for (let i = 0; i < bookList.length; i++) {
+            strTable += "<tr> " +
+                "<td>" + (i + 1) + "</td>" +
+                "<td>" + bookList[i].name + "</td>" +
+                "<td>" + bookList[i].author + "</td>" +
+                "<td>" + bookList[i].price + "</td>" +
+                "</tr>";
+        }
+        strTable += "</table>";
+        document.getElementById("tableBook").innerHTML = strTable;
+    }
+
+    function createNewBook() {
+        // B1: Thu thap thong tin cua Book
+        // B2: Khoi tao doi tuong Book
+        // B3: Luu vao danh sach
+        // B4: Goi lai ham hien thi
+
+        //B1: name, author, price
+        // C1:
+        // let name = prompt("Nhap ten sach");
+        // let author = prompt("Nhap tac gia");
+        // let price = prompt("Nhap gia");
+        // C2:
+        let name = document.getElementById("bookName").value;
+        let author = document.getElementById("author").value;
+        let price = document.getElementById("price").value;
+        //B2:
+        let newBook = new Book(name, author, price);
+        // B3:
+        bookArray.push(newBook);
+        // B4:
+        showBookList(bookArray);
+
+        document.getElementById("bookName").value = "";
+        document.getElementById("author").value = "";
+        document.getElementById("price").value = "";
+    }
+
+    function deleteBook() {
+        // B1: chon sach can xoa.
+        // B2: Duyet trong mang sach, tim va xoa.
+        // B3: Hien thi lai
+        let bookName = prompt("Nhập tên sách cần xóa : ")
+        for( let i = 0 ; i < bookArray.length ; i ++ ){
+            if(bookArray[i].name === bookName){
+                bookArray.splice(bookArray[i] , 1)
+            }
+        }
+        showBookList(bookArray)
+    }
+
+    let bookUpdating;
+    function updateBook() {
+        // B1: chon sach can sua.
+        // B2: Tim sach va hien lai thong tin cu
+        // B3: Nhap thong tin moi
+        // B4: Luu
+        let bookName = prompt("Nhap ten sach can sua");
+        for (let i = 0; i < bookArray.length; i++) {
+            if (bookArray[i].name === bookName) {
+                document.getElementById("bookName").value = bookArray[i].name;
+                document.getElementById("author").value = bookArray[i].author;
+                document.getElementById("price").value = bookArray[i].price;
+                bookUpdating = bookArray[i];
+            }
+        }
+        // updating = true;
+        // showBtn();
+    }
+
+    function saveUpdate() {
+        alert("save");
+        let name = document.getElementById("bookName").value;
+        let author = document.getElementById("author").value;
+        let price = document.getElementById("price").value;
+        bookUpdating.name = name;
+        bookUpdating.author = author;
+        bookUpdating.price = price;
+        showBookList(bookArray);
+        document.getElementById("bookName").value = "";
+        document.getElementById("author").value = "";
+        document.getElementById("price").value = "";
+        // updating = false;
+        // showBtn();
+    }
+
+    // let updating = false;
+    // showBtn();
+    // function showBtn() {
+    //     if(updating == false) {
+    //         document.getElementById("btn-add").style.display = 'block';
+    //         document.getElementById("btn-save").style.display = 'none';
+    //     } else {
+    //         document.getElementById("btn-add").style.display = 'none';
+    //         document.getElementById("btn-save").style.display = 'block';
+    //     }
+    // }
+</script>
+</body>
+</html>

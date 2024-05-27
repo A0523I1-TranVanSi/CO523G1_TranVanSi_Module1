@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // gọi hàm
+        // function orderFruit(){
+        //     let total = 0 
+        //     return total
+        // }
+    </script>
+</head>
+<body>
+    <script>
+        //giá trị trả về 
+        // function multiplyNums(x){
+        //     return x * 2 
+        // }
+        // let result = multiplyNums(10)
+        // alert(result)
+    </script>
+    <script>
+        //goi ham
+        // let result = orderFruit // nếu let result = oderFruit() thì result sẽ = 0 
+        // alert("The total is "+ result)
+    </script>
+    <script>
+        // bao đóng - Closure 
+        // function myFunction(){
+        //     let myNum = 10 
+        //     function showNum(){
+        //         alert(myNum)
+        //     }
+        //     return showNum()
+        // }
+        // let callFunc = myFunction()
+        // myFunction()
+        
+        // hàm đệ quy
+        function func1(a){
+            if (a == 2 )
+            return 2 
+            return a * func1(a-1)
+        }
+        let result = func1(5)
+        alert(result)
+    </script>
+</body>
+</html>

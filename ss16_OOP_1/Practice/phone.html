@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Mobile {
+            constructor() {
+                this.batterStatus = 100
+                this.saveMessageComposing = ''
+                this.saveMessageInbox = []
+                this.saveMessageSent = []
+                this.isPowerOn = false
+            }
+            turnOn() {
+                this.isPowerOn = true
+                console.log("Mobile turn on !")
+            }
+            turnOff() {
+                thsi.isPowerOn = false
+                console.log("Mobile turn off !")
+            }
+            phoneBatterCharger() {
+                if (this.batterStatus < 100) {
+                    this.batterStatus = Math.min(this.batterStatus + 10, 100)
+                    console.log("Muc pin dag sac la : " + this.batterStatus)
+                } else {
+                    console.log("Pin da dc xac day !!")
+                }
+            }
+            decreaseBatter() {
+                this.batterStatus--
+                if (this.batterStatus === 0) {
+                    this.turnOff()
+                }
+            }
+            texting(message) {
+                if (this.isPowerOn) {
+                    this.saveMessageComposing = message
+                    console.log("Message is composed : " + this.saveMessageComposing)
+                    this.decreaseBatter()
+                } else {
+                    console.log("Dien thoai dang tat !")
+                }
+            }
+            receiveMessage(message) {
+                if (this.isPowerOn) {
+                    this.saveMessageInbox.push(message)
+                    console.log("Message receive :" + this.saveMessageInbox)
+                    this.decreaseBatter()
+
+                } else {
+                    console.log("Dien thoai dang tat !")
+                }
+
+            }
+            sendMessage(receive, message) {
+                if (this.isPowerOn) {
+                    receive.receiveMessage(message)
+                    this.saveMessageSent.push(message)
+                    console.log("Message send : " + this.saveMessageSent)
+                    this.decreaseBatter()
+                } else {
+                    console.log("Dien thoai dang tat !")
+                }
+            }
+            veiwInbox(){
+                if(this.isPowerOn){
+                    console.log("Inbox : "+ this.saveMessageInbox)
+                }else{
+                    console.log("Dien thoai dang tat !")
+                }
+            }
+            veiwSendMessage(){
+                if(this.isPowerOn){
+                    console.log("Send : "+ this.saveMessageSent)
+                }else{
+                    console.log("Dien thoai dang tat !")
+                }
+            }
+        }
+        let nokia = new Mobile()
+        let iphone = new Mobile()
+        nokia.turnOn()
+        iphone.turnOn()
+        nokia.texting("Hello !! I'm Nokia !!")
+        nokia.sendMessage(iphone, nokia.saveMessageComposing)
+        iphone.veiwInbox()
+    </script>
+</body>
+
+</html>

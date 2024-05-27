@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <canvas id="myCanvas1" width="200" height="100"></canvas>
+    <canvas id="myCanvas2" width="200" height="100"></canvas>
+    <script>
+        // vẽ đường thẳng
+        let c = document.getElementById("myCanvas")
+        let ctx = c.getContext("2d")
+        ctx.moveTo(0,0)
+        ctx.lineTo(200,100)
+        ctx.stroke()
+    </script>
+    <script>
+        // vẽ hình tròn
+        let a = document.getElementById("myCanvas")
+        let ctx1 = a.getContext("2d")
+        ctx1.beginPath()
+        ctx1.arc(95,50,40,0,2*Math.PI)
+        ctx1.stroke()
+    </script>
+    <script>
+        // vẽ chữ 
+        let b = document.getElementById("myCanvas")
+        let ctx2 = b.getContext("2d")
+        ctx2.font = "30px Arial"
+        ctx2.fillText("hello word",10,50)
+    </script>
+    <script>
+        // hiệu ứng gradient
+        let d = document.getElementById("myCanvas1")
+        let ctx3 = d.getContext("2d")
+        
+        //create gradient
+        let grd = ctx3.createLinearGradient(0,0,200,0)
+        grd.addColorStop(0,"red")
+        grd.addColorStop(1,"white")
+
+        //fill with gradient
+        ctx3.fillStyle = grd 
+        ctx3.fillRect(10,10,150,80)
+    </script>
+    <script>
+        // hiệu ứng gradient tròn 
+        let e = document.getElementById("myCanvas2")
+        let ctx4 = e.getContext("2d")
+
+        //create gradient
+        let grd1 = ctx4.createRadialGradient(75,50,5,90,60,100)
+        grd1.addColorStop(0,"red")
+        grd1.addColorStop(1,"white")
+
+        //fill with gradient
+        ctx4.fillStyle = grd1
+        ctx4.fillRect(10,10,150,80)
+
+    </script>
+</body>
+</html>

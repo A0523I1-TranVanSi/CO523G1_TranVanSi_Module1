@@ -81,7 +81,7 @@
                 if(this.isPowerOn){
                     console.log("Inbox: ")
                     for(let i = 0 ; i < this.saveMessageInbox.length; i ++ ){
-                        console.log((i+1)+"."+this.saveMessageInbox[i])
+                        console.log(this.saveMessageInbox[i])
                     }
                     this.getDecreaseBattery()
                 }else{
@@ -93,7 +93,7 @@
                 if(this.isPowerOn){
                     console.log("Sent : ")
                     for(let j = 0 ; j < this.saveMessageSent.length; j ++){
-                        console.log((j+1)+"."+this.saveMessageSent[j])
+                        console.log(this.saveMessageSent[j])
                     }
                     this.getDecreaseBattery()
                 }else{

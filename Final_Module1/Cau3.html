@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button onclick="cerateCar()">Thêm xe</button>
+    <button onclick="deleteCar()">Xóa xe</button>
+    <div id="tableCar">
+
+    </div>
+</head>
+
+<body>
+    <script>
+        class Xe {
+            constructor(bienbao, hotenSV, CMND, hangXe, chiphi) {
+                this._bienbao = bienbao
+                this._hotenSV = hotenSV
+                this._CMND = CMND
+                this._hangXe = hangXe
+                this._chiphi = chiphi
+            }
+            get bienbao() {
+                return this._bienbao
+            }
+            set bienbao(value) {
+                this._bienbao = value
+            }
+            get hotenSV() {
+                return this._hotenSV
+            }
+            set hotenSV(value) {
+                this._hotenSV = value
+            }
+            get CMND() {
+                return this._CMND
+            }
+            set CMND(value) {
+                this._CMND = value
+            }
+            get hangXe() {
+                return this._hangXe
+            }
+            set hangXe(value) {
+                this._hangXe = value
+            }
+            get chiphi() {
+                return this._chiphi
+            }
+            set chiphi(value) {
+                this._chiphi = value
+            }
+        }
+        let arrayXe = []
+        let xe1 = new Xe("123451", "Trần Văn A", "0000001", "Honda", "3000")
+        let xe2 = new Xe("123452", "Trần Văn B", "0000002", "Yamaha", "3000")
+        let xe3 = new Xe("123453", "Trần Văn C", "0000003", "Honda", "3000")
+        arrayXe.push(xe1)
+        arrayXe.push(xe2)
+        arrayXe.push(xe3)
+
+        function showXeList(xeList) {
+            let strTable = "<table border ='1'>"
+            strTable += "<tr>" +
+                "<th>#</th>" +
+                "<th>Biển số xe</th>" +
+                "<th>Họ tên sinh viên</th>" +
+                "<th>Chứng minh nhân dân</th>" +
+                "<th>Hãng xe máy</th>" +
+                "<th>Phí gửi xe đã đóng</th>" +
+                "</tr>"
+            for (i = 0; i < xeList.length; i++) {
+                strTable += "<tr>" +
+                    "<td>" + (i + 1) + "</td>" +
+                    "<td>" + xeList[i].bienbao + "</td>" +
+                    "<td>" + xeList[i].hotenSV + "</td>" +
+                    "<td>" + xeList[i].CMND + "</td>" +
+                    "<td>" + xeList[i].hangXe + "</td>" +
+                    "<td>" + xeList[i].chiphi + "</td>" +
+                    "</tr>"
+            }
+            strTable += "</table>"
+            document.getElementById("tableCar").innerHTML = strTable
+        }
+        showXeList(arrayXe)
+
+        function deleteCar() {
+            let inputBienbao = prompt("vui lòng nhập biển số xe muốn xóa : ")
+            for (i = 0; i < arrayXe.length; i++) {
+                if (inputBienbao == arrayXe[i].bienbao) {
+                    alert("Bạn có chắc muốn xóa hay không !!")
+                    arrayXe.splice(arrayXe[i], 1)
+                }
+            }
+            showXeList(arrayXe)
+        }
+        function cerateCar() {
+            // for (i = 0; i < arrayXe.length; i++) {
+            //         do {
+            //             let bienbao = prompt("Nhập biển số xe muốn thêm : ")
+            //         } while (bienbao != arrayXe[i].bienbao)
+            // }
+            let bienbao = prompt("Nhập biển số xe muốn thêm : ")
+            // for (i = 0; i < arrayXe.length; i++) {
+            //        if( bienbao == arrayXe[i].bienbao){
+            //             alert("Biển báo nhập vào bị lỗi ! ")
+            //        }
+            // }
+            let hotenSV = prompt("Nhập họ và tên  : ")
+            let CMND = prompt("Nhập chứng minh nhân dân  : ")
+            let hangXe = prompt("Nhập hãng xe : ")
+            let chiphi = prompt("Nhập phí xe đã đóng  : ")
+            let newXe = new Xe(bienbao, hotenSV, CMND, hangXe, chiphi)
+            arrayXe.push(newXe)
+            showXeList(arrayXe)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // xây dựng lớp MyDate với 3 tham số truyền vào 
+        let MyDate = function (day, month, year) {
+            this.day = day
+            this.month = month
+            this.year = year
+
+
+            // xây dựng phương thức trả về day , month , year 
+            this.getDay = function () {
+                return this.day
+            }
+            this.getMonth = function () {
+                return this.month
+            }
+            this.getYear = function () {
+                return this.year
+            }
+
+            // xây dựng phương thức đặt lại giá trị các thuộc tính day , month , year 
+            this.setDay = function (day) {
+                this.day = day
+            }
+            this.setMonth = function (month) {
+                this.month = month
+            }
+            this.setYear = function (year) {
+                this.year = year
+            }
+
+            //phương thức setDate()
+            this.setDate = function (day, month, year) {
+                this.day = day
+                this.month = month
+                this.year = year
+            }
+
+            //Phương thức toString()
+            this.toString = function () {
+                return alert(this.day + "/" + this.month + "/" + this.year)
+            }
+        }
+
+        //sữ dụng lớp vừa tạo , tạo đối tượng date vs ngày : 2 , tháng : 2 , năm : 2007
+        let date = new MyDate(2, 2, 2007)
+
+        //truy cập phương thức của lớp date
+        let day = date.getDay()
+        let month = date.getMonth()
+        let year = date.getYear()
+
+        //Hiển thị ngày tháng 
+        alert(day + "/" + month + "/" + year)
+
+
+        date.setDate(10, 10, 2023)
+        let formatDate = date.toString()
+        //gọi phương thức để thay đổi ngày , tháng , năm
+        // date.setDay(10)
+        // date.setMonth(10)
+        // date.setYear(2023)
+        // alert(day + "/" + month + "/" + year)
+    </script>
+</body>
+
+</html>

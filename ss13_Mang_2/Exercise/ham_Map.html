@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const animals = [ 
+            {
+                id : 1 , 
+                name : "cat" , 
+                size : "small"
+            },
+            {
+                id : 2 , 
+                name : " dog",
+                size : "small"
+            }
+        ]
+        let newAnimals = animals.map(function(animal){
+            if(animal.id == 1 ){
+                animal.name = "si dep trai"
+            }
+            return animal
+        })
+        console.log(newAnimals)
+    </script>
+</body>
+</html>

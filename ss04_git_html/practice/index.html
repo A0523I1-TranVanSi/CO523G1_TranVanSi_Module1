@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: #f4f4f4;
+    }
+
+    #container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input, button {
+      margin: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <label for="minValue">Min Value:</label>
+    <input type="number" id="minValue" min="1" placeholder="Min Value">
+    <br>
+    <label for="maxValue">Max Value:</label>
+    <input type="number" id="maxValue" min="1" placeholder="Max Value">
+
+    <br>
+
+    <button onclick="generateRandom()">Generate Random Number</button>
+
+    <br>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    var predefinedValues = [10, 5, 20, 15, 25];
+    var currentIndex = 0;
+
+    function generateRandom() {
+      var randomNumber = predefinedValues[currentIndex];
+      currentIndex = (currentIndex + 1) % predefinedValues.length;
+      document.getElementById("result").innerText = "Result : " + randomNumber;
+    }
+  </script>
+
+</body>
+</html>

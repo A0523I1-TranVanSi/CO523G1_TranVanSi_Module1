@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arrs = ["xuan", "ha" , "thu"]
+        console.log(arrs)
+        // tại vị trí 1 và xóa 2 phần tử từ vị trí đó trở lên
+        arrs.splice(1,2) 
+        console.log(arrs)
+
+        let students = [
+            {
+                id : 1 , 
+                name : "Tran Van Si ", 
+                address : "da nang"
+            },
+            {
+                id : 2 , 
+                name : "Dinh Thi Thuy" , 
+                address : "quang nam"
+            }
+        ]
+        console.log(students)
+        for( i = 0 ; i < students.length; i++ ){
+            if (students[i].id == 2 ){
+                students.splice(i,1)
+            }
+        }
+        console.log(students)
+    </script>
+</body>
+</html>
